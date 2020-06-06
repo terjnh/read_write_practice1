@@ -6,8 +6,11 @@ Item {
     id: element
     GridView {
         id: myGridView
-        width: 240
-        height: 250
+        width: 120
+        height: 240
+        anchors.verticalCenterOffset: 0
+        anchors.horizontalCenterOffset: 0
+        anchors.bottomMargin: 115
         cellWidth: 120
         cellHeight: 50
 
@@ -17,19 +20,20 @@ Item {
 
         model: ListModel {
             ListElement {
-                name: "Page 1"
+                pageName: "Start Page"
             }
             ListElement {
-                name: "Page 2"
+                pageName: "Page 2"
             }
             ListElement {
-                name: "Page 3"
+                pageName: "Page 3"
             }
         }
 
         delegate: Button {
             id: myButton
-            text: name
+            text: pageName
+            width: 120
             onClicked: {
                 // Retrieve load_page() function from main.qml
                 load_page(text);
@@ -39,3 +43,9 @@ Item {
 
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

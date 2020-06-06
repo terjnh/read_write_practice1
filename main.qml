@@ -55,7 +55,7 @@ ApplicationWindow {
 
     function load_page(page) {
         switch(page) {
-        case 'Page 1':
+        case 'Start Page':
             stackView.push(start_page);
             break;
         case 'Page 2':
