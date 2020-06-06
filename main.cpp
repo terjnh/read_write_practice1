@@ -1,6 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
+#include <QQuickView>
+#include <QUrl>
+#include <QQmlContext>
+
+#include "filehandling.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,14 +16,23 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                     &app, [url](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl)
-            QCoreApplication::exit(-1);
-    }, Qt::QueuedConnection);
-    engine.load(url);
 
+    // Export instantiated object file_handling to QML and make the connection there
+    QQuickView mainview(QUrl("qrc:/main.qml"));
+    FileHandling file_handling;
+    mainview.rootContext()->setContextProperty("file_handling", &file_handling);
+
+
+
+//    QQmlApplicationEngine engine;
+//    const QUrl url(QStringLiteral("qrc:/main.qml"));
+//    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+//                     &app, [url](QObject *obj, const QUrl &objUrl) {
+//        if (!obj && url == objUrl)
+//            QCoreApplication::exit(-1);
+//    }, Qt::QueuedConnection);
+//    engine.load(url);
+
+//    mainview.show();
     return app.exec();
 }

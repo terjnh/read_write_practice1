@@ -23,7 +23,7 @@ Item {
                 pageName: "Start Page"
             }
             ListElement {
-                pageName: "Page 2"
+                pageName: "Read File"
             }
             ListElement {
                 pageName: "Page 3"

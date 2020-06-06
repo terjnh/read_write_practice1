@@ -3,6 +3,11 @@ import QtQuick.Controls 2.5
 
 Item {
     id: page2
+
+    signal qml_signal
+
+
+
     Column {
         id: column
         x: 163
@@ -22,14 +27,34 @@ Item {
     }
 
     Column {
-        id: column1
+        id: colButtons
         y: 74
-        width: 200
+        width: 150
         height: 400
+        spacing: 12
         anchors.left: parent.left
         anchors.leftMargin: 30
+
+        Button {
+            id: btnOpenFile
+            width: 120
+            height: 60
+            text: qsTr("Open File")
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            onClicked: {
+                page2.qml_signal()
+                console.log("Open File button clicked");
+            }
+        }
     }
 
+    // When openFile() signal is emited from QML,
+    //  onOpenFile SLOT in QML will handle the connection to
+    //  openFile() SLOT in C++ class (filehandling.h)
+    onQml_signal: {
+        file_handling.openFile();
+    }
 
 }
 

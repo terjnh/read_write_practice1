@@ -58,7 +58,7 @@ ApplicationWindow {
         case 'Start Page':
             stackView.push(start_page);
             break;
-        case 'Page 2':
+        case 'Read File':
             stackView.push(second_page);
             break;
         case 'Page 3':
