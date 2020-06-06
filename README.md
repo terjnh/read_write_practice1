@@ -3,6 +3,6 @@
 Read Write Practice App using Qt and C++ integration
 
 TODO:
-- [x] Parse JSON with QML - very similar to Javascript
+- [ ] Parse JSON with QML - very similar to Javascript
 - [ ] Try to pass data between QML and C++
 - [ ] Add on here...
