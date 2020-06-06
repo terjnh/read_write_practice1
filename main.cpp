@@ -22,6 +22,12 @@ int main(int argc, char *argv[])
     mainview.rootContext()->setContextProperty("file_handling", &file_handling);
 
 
+    return app.exec();
+
+
+
+
+    // IGNORE CODE BELOW THIS LINE, USE FOR REFERENCE ONLY
     /* Mystery black box below: Commenting the bottom lines out allow me to start the App as a single window
         Communication between QML SIGNAL and C++ SLOT seems to work */
 //    QQmlApplicationEngine engine;
@@ -36,5 +42,5 @@ int main(int argc, char *argv[])
 //    mainview.show();
 
 
-    return app.exec();
+
 }

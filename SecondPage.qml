@@ -55,7 +55,28 @@ Item {
                 console.log("Open File button clicked");
                 fileDialog.visible = true;
             }
-        }
+        }  //Button (id: btnOpenFile)
+
+        Button {
+            id: btnJsonEg
+            width: 120
+            height: 60
+            text: qsTr("Json Example")
+            anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: {
+                var JsonString = '{"a":"A whatever, run","b":"B fore something happens"}';
+                var JsonObject= JSON.parse(JsonString);
+
+                //retrieve values from JSON again
+                var aString = JsonObject.a;
+                var bString = JsonObject.b;
+
+                console.log(aString);
+                console.log(bString);
+            }
+        }  //Button (id: btnJsonEg)
+
+
     }
 
     FileDialog {
