@@ -1,10 +1,18 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
+import QtQuick.Dialogs 1.0
 
 Item {
     id: page2
 
     signal qml_signal
+
+    /*** When openFile() signal is emited from QML,
+            onOpenFile SLOT in QML will handle the connection to
+            openFile() SLOT in C++ class (filehandling.h)  ***/
+    onQml_signal: {
+        file_handling.openFile();
+    }
 
 
 
@@ -45,16 +53,28 @@ Item {
             onClicked: {
                 page2.qml_signal()
                 console.log("Open File button clicked");
+                fileDialog.visible = true;
             }
         }
     }
 
-    // When openFile() signal is emited from QML,
-    //  onOpenFile SLOT in QML will handle the connection to
-    //  openFile() SLOT in C++ class (filehandling.h)
-    onQml_signal: {
-        file_handling.openFile();
+    FileDialog {
+        id: fileDialog
+        title: "Please choose a file... "
+        folder: shortcuts.home
+        onAccepted: {
+            console.log("You chose: " + fileDialog.fileUrls)
+            Qt.quit();
+        }
+        onRejected: {
+            console.log("Cancelled");
+            Qt.quit();
+        }
     }
+
+
+
+
 
 }
 
