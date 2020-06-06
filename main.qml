@@ -1,65 +1,71 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
+import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     id: window
     visible: true
     width: 640
     height: 480
-    title: qsTr("Stack")
+    title: qsTr("Stack App")
 
     header: ToolBar {
-        contentHeight: toolButton.implicitHeight
-
-        ToolButton {
-            id: toolButton
-            text: stackView.depth > 1 ? "\u25C0" : "\u2630"
-            font.pixelSize: Qt.application.font.pixelSize * 1.6
-            onClicked: {
-                if (stackView.depth > 1) {
-                    stackView.pop()
-                } else {
-                    drawer.open()
-                }
-            }
-        }
-
-        Label {
-            text: stackView.currentItem.title
-            anchors.centerIn: parent
-        }
-    }
-
-    Drawer {
-        id: drawer
-        width: window.width * 0.66
-        height: window.height
-
-        Column {
+        RowLayout {
             anchors.fill: parent
-
-            ItemDelegate {
-                text: qsTr("Page 1")
-                width: parent.width
-                onClicked: {
-                    stackView.push("Page1Form.ui.qml")
-                    drawer.close()
-                }
-            }
-            ItemDelegate {
-                text: qsTr("Page 2")
-                width: parent.width
-                onClicked: {
-                    stackView.push("Page2Form.ui.qml")
-                    drawer.close()
-                }
+            ToolButton {
+                text: qsTr("<")
+                onClicked: stackView.pop()
+            }  //ToolButton
+            Label {
+                text: "Read Write Practice App"
+                elide: Label.ElideRight
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                Layout.fillWidth: true
             }
         }
     }
 
     StackView {
         id: stackView
-        initialItem: "HomeForm.ui.qml"
-        anchors.fill: parent
+        initialItem: start_page
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+        }
     }
+
+    Component {
+        id: start_page
+        StartingPage {}
+    }
+
+    Component {
+        id: second_page
+        SecondPage {}
+    }
+
+    Component {
+        id: third_page
+        ThirdPage {}
+    }
+
+    function load_page(page) {
+        switch(page) {
+        case 'Page 1':
+            stackView.push(start_page);
+            break;
+        case 'Page 2':
+            stackView.push(second_page);
+            break;
+        case 'Page 3':
+            stackView.push(third_page);
+            break;
+        }
+    }
+
+
 }
