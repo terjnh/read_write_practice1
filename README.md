@@ -2,7 +2,7 @@
 
 Read Write Practice App using Qt and C++ integration
 
-
+"-----"
 
 ### TODO:
 - [X] Try to pass data between QML and C++
