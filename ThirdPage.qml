@@ -39,6 +39,35 @@ Item {
 
     }
 
+    Column {
+        id: colButtons
+        x: 409
+        y: 80
+        width: 200
+        height: 380
+        spacing: 10
+        anchors.leftMargin: 15
+        anchors.top: colText.top
+        anchors.left: colText.right
+        anchors.bottom: colText.bottom
+
+        Button {
+            id: btnSave
+            width: 110
+            height: 50
+            text: qsTr("Save")
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Button {
+            id: btnOpen
+            width: 110
+            height: 50
+            text: qsTr("Open")
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+    }
+
 
 }
 
