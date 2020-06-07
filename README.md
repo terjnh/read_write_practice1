@@ -7,11 +7,11 @@ Read Write Practice App using Qt and C++ integration
 ### TODO:
 - [X] Try to pass data between QML and C++
 - [X] Now we can automate read-write with a button with a fixed file
-
+<br/>
 - [ ] Remove QML Second Page - 'Open File' Button (clean up code with the removal)
 - [X] A UI-element to allow write to a file with a custom message (done on IO Page)
 - [ ] A UI-element to allow read from a file
-
+<br/>
 - [ ] Save to a file (JSON format)
 - [ ] Read JSON data from a file
 - [ ] Organize read JSON data to a more presentable UI format
