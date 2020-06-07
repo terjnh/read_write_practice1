@@ -6,8 +6,8 @@ import QtQuick.Layouts 1.3
 ApplicationWindow {
     id: window
     visible: true
-    width: 640
-    height: 480
+    width: 800
+    height: 600
     title: qsTr("Stack App")
 
     header: ToolBar {
@@ -59,10 +59,10 @@ ApplicationWindow {
         case 'Start Page':
             stackView.push(start_page);
             break;
-        case 'Read File':
+        case 'Reference':
             stackView.push(second_page);
             break;
-        case 'Page 3':
+        case 'IO Page':
             stackView.push(third_page);
             break;
         }

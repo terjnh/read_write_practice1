@@ -1,24 +1,49 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
+import QtQuick.Controls.Styles 1.4
 
 Item {
-    id: page2
+    id: page3
     Column {
-        id: column
-        x: 163
-        y: 93
-        width: 161
-        height: 87
+        id: colHeader
+        x: 60
+        width: 535
+        height: 30
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 24
 
         Label {
             id: label
-            text: qsTr("This is page 3")
+            text: qsTr("IO Page - Read / Write")
             font.pointSize: 16
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 
+    Column {
+        id: colText
+        width: 398
+        height: 350
+        anchors.top: parent.top
+        anchors.topMargin: 100
+        anchors.left: parent.left
+        anchors.leftMargin: 20
+
+        TextArea {
+            id: textArea
+            anchors.fill: parent
+            anchors.margins: 1
+            placeholderText: qsTr("Write some text here")
+        }
+
+    }
+
 
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_y:93}D{i:3;anchors_height:399;anchors_x:0;anchors_y:80}
+}
+##^##*/

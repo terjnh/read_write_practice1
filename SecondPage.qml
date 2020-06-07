@@ -40,7 +40,7 @@ Item {
 
         Label {
             id: label
-            text: qsTr("Open Directory  ->  Read from a file  ->  Display Data")
+            text: qsTr("Testing Page for JSON and READ/WRITE File")
             font.pointSize: 12
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -95,8 +95,9 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "FileHandle\nC++"
             onClicked: {
-                console.log("WRITE" + myFile.write("Testing.. 1.. 2.. 3\nTest New Line"));
+                console.log("WRITE success ? " + myFile.write("Testing.. 1.. 2.. 3\nTest New Line"));
                 textareaRead.text = myFile.read();
+                // Read will be successful if text is shown in textareaRead
             }
         }
     }  //Column (id: colButtons)
