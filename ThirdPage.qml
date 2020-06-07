@@ -13,7 +13,7 @@ Item {
 
     FileHandling {
         id: fileHandle
-        source: tfFileName.text
+        source: "/home/terry/Desktop/" + tfFileName.text
         onError: console.log(msg)
     }
 
