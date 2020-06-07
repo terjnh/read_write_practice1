@@ -1,9 +1,24 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Dialogs 1.2
+
+// From C++
+import FileHandling 1.0
+
 
 Item {
     id: page3
+
+
+    FileHandling {
+        id: fileHandle
+        source: tfFileName.text
+        onError: console.log(msg)
+    }
+
+
+
     Column {
         id: colHeader
         x: 60
@@ -51,12 +66,27 @@ Item {
         anchors.left: colText.right
         anchors.bottom: colText.bottom
 
+        Label {
+            id: lblFileNameInput
+            text: "Enter File Name to Save As:"
+        }
+
+        TextField {
+            id: tfFileName
+            width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+            placeholderText: qsTr("Rmb to add .txt")
+        }
+
         Button {
             id: btnSave
             width: 110
             height: 50
             text: qsTr("Save")
             anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: {
+                fileHandle.write(textArea.text);
+            }
         }
 
         Button {
@@ -66,6 +96,7 @@ Item {
             text: qsTr("Open")
             anchors.horizontalCenter: parent.horizontalCenter
         }
+
     }
 
 

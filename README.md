@@ -9,7 +9,7 @@ Read Write Practice App using Qt and C++ integration
 - [X] Now we can automate read-write with a button with a fixed file
 
 - [ ] Remove QML Second Page - 'Open File' Button (clean up code with the removal)
-- [ ] A UI-element to allow write to a file with a custom message
+- [X] A UI-element to allow write to a file with a custom message (done on IO Page)
 - [ ] A UI-element to allow read from a file
 
 - [ ] Parse JSON with QML - very similar to Javascript (https://stackoverflow.com/questions/41900383/parsing-json-in-qml/41900561)

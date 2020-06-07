@@ -137,7 +137,7 @@ Item {
             width: 180
             height: 300
             anchors.horizontalCenter: parent.horizontalCenter
-            placeholderText: qsTr("Text from my_file.txt will be displayed here")
+            placeholderText: qsTr("Text from my_file.txt \nwill be displayed here")
             text: ""
         }
     }
