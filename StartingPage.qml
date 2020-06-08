@@ -37,7 +37,7 @@ Item {
             onClicked: {
                 // Retrieve load_page() function from main.qml
                 load_page(text);
-                console.log("text: " + text);
+                console.log("PAGE: " + text);
             }
         }
 

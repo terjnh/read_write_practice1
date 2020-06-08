@@ -11,12 +11,36 @@ Item {
     id: page3
 
 
+    // Change file save directory here
     FileHandling {
         id: fileHandle
         source: "/home/terry/Desktop/" + tfFileName.text
         onError: console.log(msg)
     }
 
+
+    Popup {
+        id: savePopup
+        anchors.centerIn: parent
+        width: 280; height: 120
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        Column{
+            anchors.fill: parent
+            spacing: 30
+            Label {
+                horizontalAlignment: Text.AlignHCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "File saved in: \n" + fileHandle.source;
+            }
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Close"
+                onClicked: savePopup.close()
+            }
+        }
+    } //Popup (id: savePopup)
 
 
     Column {
@@ -78,6 +102,7 @@ Item {
             placeholderText: qsTr("Rmb to add .txt")
         }
 
+        // Button to Save File
         Button {
             id: btnSave
             width: 110
@@ -85,16 +110,21 @@ Item {
             text: qsTr("Save")
             anchors.horizontalCenter: parent.horizontalCenter
             onClicked: {
-                fileHandle.write(textArea.text);
+                fileHandle.write(textArea.text)
+                savePopup.open()
             }
-        }
+        }  //Button (id: btnSave)
 
+        // Button to Open File
         Button {
             id: btnOpen
             width: 110
             height: 50
             text: qsTr("Open")
             anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: {
+                textArea.text = fileHandle.read()
+            }
         }
 
     }
