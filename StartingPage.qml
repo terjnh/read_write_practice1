@@ -12,7 +12,7 @@ Item {
         anchors.horizontalCenterOffset: 0
         anchors.bottomMargin: 115
         cellWidth: 120
-        cellHeight: 50
+        cellHeight: 60
 
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
@@ -34,6 +34,7 @@ Item {
             id: myButton
             text: pageName
             width: 120
+            height: 50
             onClicked: {
                 // Retrieve load_page() function from main.qml
                 load_page(text);

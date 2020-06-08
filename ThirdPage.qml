@@ -92,7 +92,7 @@ Item {
 
         Label {
             id: lblFileNameInput
-            text: "Enter File Name to Save As:"
+            text: "File Name for Read / Write:"
         }
 
         TextField {
@@ -125,6 +125,14 @@ Item {
             onClicked: {
                 textArea.text = fileHandle.read()
             }
+        }
+
+        Button {
+            id: btnJson
+            width: 110
+            height: 56
+            text: "Interpret from\nJSON"
+            anchors.horizontalCenter: parent.horizontalCenter
         }
 
     }
