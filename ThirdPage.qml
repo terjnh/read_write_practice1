@@ -127,12 +127,25 @@ Item {
             }
         }
 
+
         Button {
             id: btnJson
             width: 110
             height: 56
             text: "Interpret from\nJSON"
             anchors.horizontalCenter: parent.horizontalCenter
+
+            onClicked: {
+                if(textArea.text != ""){
+                    var JsonString = textArea.text;
+                    var JsonObject = JSON.parse(JsonString);
+                    var nameString = JsonObject.name;
+                    var ageString = JsonObject.age;
+
+                    console.log(nameString)
+                    console.log(ageString)
+                }
+            }
         }
 
     }
