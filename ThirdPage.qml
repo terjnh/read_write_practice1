@@ -10,6 +10,8 @@ import FileHandling 1.0
 Item {
     id: page3
 
+    property var nameString: ""
+    property var interestString: ""
 
     // Change file save directory here
     FileHandling {
@@ -74,6 +76,8 @@ Item {
             anchors.fill: parent
             anchors.margins: 1
             placeholderText: qsTr("Write some text here")
+            wrapMode: "WordWrap"
+            selectByMouse: true
         }
 
     }
@@ -84,7 +88,7 @@ Item {
         y: 80
         width: 200
         height: 380
-        spacing: 10
+        spacing: 12
         anchors.leftMargin: 15
         anchors.top: colText.top
         anchors.left: colText.right
@@ -139,13 +143,24 @@ Item {
                 if(textArea.text != ""){
                     var JsonString = textArea.text;
                     var JsonObject = JSON.parse(JsonString);
-                    var nameString = JsonObject.name;
-                    var ageString = JsonObject.age;
+                    nameString = JsonObject.name;
+                    interestString = JsonObject.interests;
 
                     console.log(nameString)
-                    console.log(ageString)
+                    console.log(interestString)
                 }
             }
+        }
+
+        Label {
+            id: lblName
+            text: qsTr("Name: " + nameString)
+        }
+
+        Label {
+            id: lblInterests
+            text: qsTr("One interest: " + interestString[1] + "\n"
+                       + "All interests: " + interestString)
         }
 
     }
